@@ -12,7 +12,7 @@ import{
   BackIOS,
 } from 'react-native';
 
-var question2 = require('./Question2');
+
 
 var styles = StyleSheet.create({
   container:{
@@ -23,14 +23,21 @@ var styles = StyleSheet.create({
     justifyContent:'space-between',
   },
   TextBox:{
-    flex:4,
-    marginHorizontal: 10,
+    flex:8,
+    marginHorizontal: 15,
     alignSelf:'flex-start',
   },
   text:{
     color: 'black',
     backgroundColor: 'white',
     fontSize: 18,
+    flex:3,
+  },
+  title:{
+    color: 'black',
+    backgroundColor: 'white',
+    fontSize: 25,
+    flex:1,
   },
   imageBox:{
     flex:2,
@@ -78,13 +85,8 @@ var styles = StyleSheet.create({
   },
 });
 
-class Question1 extends Component{
-    onNextPressed(){
-      this.props.navigator.push({
-            title: 'Question 2',
-            component: question2,
-        });
-    }
+class Question3 extends Component{
+    
 
     render(){
     return(
@@ -94,18 +96,28 @@ class Question1 extends Component{
                 style={styles.imagetitle}/>
         </View>
         <View style={styles.TextBox}>
-          <Text style={styles.text}>Question1 {'\n\n'}
-            Overall evaluation of this event:{'\n\n'}
-            Excellent{'\n\n'}
-            Very Good{'\n\n'}
-            Good{'\n\n'}
-            Fair{'\n\n'}
-            Poor{'\n\n'}
+          <Text style={styles.title}>Question3 {'\n'}</Text>
+          <Text style={styles.text}>
+            Please rate the speaker(s) and write constructive suggestions to aid
+            the speaker in future presentations: {'\n\n'}
+            Speaker: {'\n\n'}
+            Topic: {'\n\n'}
+            1.Delivery{'\n\n'}
+            -Excellent   -Very Good   -Good   -Fair  -Poor -None {'\n\n'}
+            2.Learn new surgical and therapeutic treatment of ophthalmic diseases
+            to better manage complicated cases.{'\n\n'}
+            - Yes      - No         - None {'\n\n'}
+            3.Cite current research findings in the field of ophthalmology 
+            and critically analyze new landmark contributions in ophthalmology research.{'\n\n'}
+            - Yes      - No         - None {'\n\n'}
+            4.Interpret the appropriate utilization, humanitarian implementation, 
+            and respect patient privacy and the requirements for informed consenting.{'\n\n'}
+            - Yes      - No         - None {'\n\n'}
+
             </Text>
         </View>
         <View style={styles.buttonBox}>
           <TouchableHighlight style={styles.button}
-            onPress = {this.onNextPressed.bind(this)}
             underlayColor= '#99d9f4'>
             <Text style={styles.buttonText}>Next</Text>
           </TouchableHighlight>
@@ -115,4 +127,4 @@ class Question1 extends Component{
     }
 }
 
-module.exports = Question1;
+module.exports = Question3;

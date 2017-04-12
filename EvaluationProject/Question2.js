@@ -12,7 +12,7 @@ import{
   BackIOS,
 } from 'react-native';
 
-var question2 = require('./Question2');
+var question3 = require('./Question3');
 
 var styles = StyleSheet.create({
   container:{
@@ -23,7 +23,7 @@ var styles = StyleSheet.create({
     justifyContent:'space-between',
   },
   TextBox:{
-    flex:4,
+    flex:8,
     marginHorizontal: 10,
     alignSelf:'flex-start',
   },
@@ -31,6 +31,13 @@ var styles = StyleSheet.create({
     color: 'black',
     backgroundColor: 'white',
     fontSize: 18,
+    flex:3,
+  },
+  title:{
+    color: 'black',
+    backgroundColor: 'white',
+    fontSize: 25,
+    flex:1,
   },
   imageBox:{
     flex:2,
@@ -78,11 +85,11 @@ var styles = StyleSheet.create({
   },
 });
 
-class Question1 extends Component{
+class Question2 extends Component{
     onNextPressed(){
       this.props.navigator.push({
-            title: 'Question 2',
-            component: question2,
+            title: 'Question 3',
+            component: question3,
         });
     }
 
@@ -94,13 +101,23 @@ class Question1 extends Component{
                 style={styles.imagetitle}/>
         </View>
         <View style={styles.TextBox}>
-          <Text style={styles.text}>Question1 {'\n\n'}
-            Overall evaluation of this event:{'\n\n'}
-            Excellent{'\n\n'}
-            Very Good{'\n\n'}
-            Good{'\n\n'}
-            Fair{'\n\n'}
-            Poor{'\n\n'}
+          <Text style={styles.title}>Question2 {'\n\n'}</Text>
+          <Text style={styles.text}>
+            Did this event meet the objectives
+            of this Grand Rounds series? Are you able to: {'\n\n'}
+            1.Distinguish the diagnosis and management of diseases
+            and conditions encountered by ophthalmologists.{'\n\n'}
+            - Yes      - No         - None {'\n\n'}
+            2.Learn new surgical and therapeutic treatment of ophthalmic diseases
+            to better manage complicated cases.{'\n\n'}
+            - Yes      - No         - None {'\n\n'}
+            3.Cite current research findings in the field of ophthalmology 
+            and critically analyze new landmark contributions in ophthalmology research.{'\n\n'}
+            - Yes      - No         - None {'\n\n'}
+            4.Interpret the appropriate utilization, humanitarian implementation, 
+            and respect patient privacy and the requirements for informed consenting.{'\n\n'}
+            - Yes      - No         - None {'\n\n'}
+
             </Text>
         </View>
         <View style={styles.buttonBox}>
@@ -115,4 +132,4 @@ class Question1 extends Component{
     }
 }
 
-module.exports = Question1;
+module.exports = Question2;

@@ -1,119 +1,122 @@
 'use strict';
-
-import React, {Component} from 'react'
-import{
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-  TouchableHighlight,
-  Image,
-  navigator,
-  BackIOS,
-} from 'react-native';
-
-var question1 = require('./Question1');
+var Complete = require('./Complete');
+var Password = require('./Password');
+import React, { Component } from 'react'
+import {
+	StyleSheet,
+	Text,
+	TextInput,
+	View,
+	TouchableHighlight,
+	Image,
+	KeyboardAvoidingView
+}from 'react-native';
 
 var styles = StyleSheet.create({
-  container:{
-    flex:1,
-    alignItems:'center',
-    flexDirection:'column',
-    paddingTop:69,
-    justifyContent:'space-between',
-  },
-  // text:{
-  //   color: 'black',
-  //   backgroundColor: 'white',
-  //   fontSize: 30,
-  //   margin: 80,
-  //   flex:2,
-  // },
-  imageBox:{
-    flex:2,
-    alignSelf:'flex-start',
-    marginLeft: 10,
+	description: {
+		marginBottom: 100,
+		fontSize: 30,
+		textAlign: 'center',
+		color: 'black'
 
-  },
-  imagetitle:{
-    width: 136,
-    height: 35,
-  },
-  imagepassword:{
-    width: 90,
-    height:90,
-    marginHorizontal:130,
-    marginTop:30,
 
-  },
-  inputBox:{
-    flexDirection:'column',
-    flex:1,
-    alignSelf:'stretch',
-    justifyContent:'space-between',
-    marginHorizontal: 25,
-  },
-  input:{
-    height: 35,
-    borderColor: 'grey',
-    borderWidth: 1.5,
-    borderRadius: 10,
-  },
-  buttonBox:{
-    flexDirection:'column',
-    justifyContent: 'flex-end',
-    flex:3,
-    paddingBottom: 20,
-    alignSelf:'stretch',
-    marginHorizontal: 30,
-  },
-  buttonText:{
-    fontSize:14,
-    color: 'white',
-    textAlign: 'center',
-  },
-  button:{
-    backgroundColor:'#48BBEC',
-    borderColor:'#48BBEC',
-    borderRadius: 10,
-    alignSelf:'stretch',
-    padding:14,
-    justifyContent: 'center',
-  },
+	},
+	container: {
+		//flex:1,
+		//paddingTop: 69,
+		//marginTop: 40,
+		flexDirection: 'column',
+		justifyContent: 'space-between',
+
+		alignItems: 'center'
+	},
+
+	flowRight: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		alignSelf: 'stretch'
+	},
+
+	buttonText:{
+		fontSize: 18,
+		color: 'white',
+		alignSelf: 'center'
+	},
+
+	button: {
+		height: 36,
+		flex: 1,
+		marginLeft: 20,
+		marginRight: 20,
+		backgroundColor: '#48BBEC',
+		borderColor: '#48BBEC',
+		borderWidth: 1,
+		borderRadius: 8,
+		marginTop: 10,
+		alignSelf: 'stretch',
+		justifyContent: 'center'
+	},
+
+	searchInput: {
+		height: 36,
+		//padding: 20,
+		marginLeft: 20,
+		marginRight: 20,
+		//flex: 4,
+		fontSize: 18,
+		borderWidth: 1,
+		borderColor: '#48BBEC',
+		borderRadius: 8,
+		marginBottom: 200,
+		color: '#48BBEC'
+	},
+
+	image:{
+		width: 136,
+    	height: 35,
+    	marginTop: 69,
+    	marginLeft: 10,
+    	marginBottom: 50
+	}
 });
 
-class password extends Component{
-    onNextPressed(){
-      this.props.navigator.push({
-            title: 'Question 1',
-            component: question1,
-        });
-    }
+class SearchPage extends Component {
 
-    render(){
-    return(
-      <View style={styles.container}>
-       <View style={styles.imageBox}>
-            <Image source={require('./Resources/title.png')}
-                style={styles.imagetitle}/>
-            <Image source={require('./Resources/secure.png')}
-                style={styles.imagepassword}/>
-        </View>
-         <View style={styles.inputBox}>
-          <TextInput style = {styles.input}
-              placeholder = " Password:"
-              autoCapitalize = 'none'/>
-          </View>
-        <View style={styles.buttonBox}>
-          <TouchableHighlight style={styles.button}
-            onPress = {this.onNextPressed.bind(this)}
-            underlayColor= '#99d9f4'>
-            <Text style={styles.buttonText}>Next</Text>
-          </TouchableHighlight>
 
-        </View>
-      </View>)
-    }
+	onButtonPress(){
+		this.props.navigator.push({
+    	title: "Finished",
+    	component: Complete,
+  });
+	}
+	render(){
+		return(
+			<KeyboardAvoidingView behavior = "padding" >
+			<Image source={require('./Resources/title.png')} style = {styles.image}/>
+			<View style = {styles.container}>
+
+				<Text style = {styles.description}> Password for Evaluation </Text>
+
+				<TextInput
+			  	style = {styles.searchInput}
+			  	placeholder = 'Enter your password!'/>
+
+			 	<View style = {styles.flowRight}>
+
+
+			  	<TouchableHighlight onPress = {() => this.onButtonPress()} style = {styles.button}
+				underlayColor = '#99d9f4'>
+
+				<Text style = {styles.buttonText} >Confirm</Text>
+				</TouchableHighlight>
+			</View>
+
+
+
+			</View>
+
+			</KeyboardAvoidingView>
+			);
+	}
 }
-
-module.exports = password;
+module.exports = SearchPage;
