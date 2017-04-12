@@ -1,5 +1,5 @@
 'use strict';
-
+var Password = require('./Password');
 import React, {Component} from 'react'
 import{
   StyleSheet,
@@ -12,7 +12,7 @@ import{
   BackIOS,
 } from 'react-native';
 
-var question4 = require('./Question4');
+var question1 = require('./Question1');
 
 var styles = StyleSheet.create({
   container:{
@@ -22,34 +22,25 @@ var styles = StyleSheet.create({
     paddingTop:69,
     justifyContent:'space-between',
   },
-  TextBox:{
-    flex:8,
-    marginHorizontal: 15,
-    alignSelf:'flex-start',
-  },
-  text:{
-    color: 'black',
-    backgroundColor: 'white',
-    fontSize: 18,
-    flex:7,
-  },
-  title:{
-    color: 'black',
-    backgroundColor: 'white',
-    fontSize: 25,
-    flex:1,
-  },
+
   imageBox:{
     flex:1,
     alignSelf:'flex-start',
     marginLeft: 10,
-
+    justifyContent:'space-between',
   },
-  imagetitle:{
+  titleImage:{
     width: 136,
     height: 35,
   },
+  image:{
+  	//alignSelf:'center',
+  	width: 80,
+    height: 80,
+    //padding:30,
+  },
   inputBox:{
+  	paddingTop:30,
     flexDirection:'column',
     flex:1,
     alignSelf:'stretch',
@@ -65,7 +56,7 @@ var styles = StyleSheet.create({
   buttonBox:{
     flexDirection:'column',
     justifyContent: 'flex-end',
-    flex:2,
+    flex:4,
     paddingBottom: 20,
     alignSelf:'stretch',
     marginHorizontal: 30,
@@ -85,44 +76,35 @@ var styles = StyleSheet.create({
   },
 });
 
-class Question3 extends Component{
+class CheckPassword extends Component{
+
     onButtonPress(){
         this.props.navigator.push({
-        title: "Question4",
-        component: question4,
+        title: "Question1",
+        component: question1,
       });
     }
+    
 
     render(){
+    
     return(
       <View style={styles.container}>
        <View style={styles.imageBox}>
             <Image source={require('./Resources/title.png')}
-                style={styles.imagetitle}/>
+                style={styles.titleImage}/>
+            
         </View>
-        <View style={styles.TextBox}>
-          <Text style={styles.title}>Question3 {'\n'}</Text>
-          <Text style={styles.text}>
-            Please rate the speaker(s) and write constructive suggestions to aid
-            the speaker in future presentations: {'\n\n'}
-            Speaker: {'\n'}
-            Topic: {'\n'}
-            1.Delivery{'\n\n'}
-            -Excellent -Very Good -Good -Fair -Poor -None {'\n'}
-            2.Content{'\n'}
-            -Excellent -Very Good -Good -Fair -Poor -None {'\n'}
-            3.Slides/Handouts{'\n\n'}
-            -Excellent -Very Good -Good -Fair -Poor -None {'\n'}
-            4.Practical Value{'\n\n'}
-            -Excellent -Very Good -Good -Fair -Poor -None {'\n'}
-            5.Was there a bias in this presentation?{'\n'}
-            -Excellent -Very Good -Good -Fair -Poor -None {'\n'}
-
-            </Text>
-        </View>
+        <Image source={require('./Resources/secure.png')}
+                style={styles.image}/>
+         <View style={styles.inputBox}>
+          <TextInput style = {styles.input}
+              placeholder = " Enter evaluation password:"
+              autoCapitalize = 'none'/>
+          </View>
         <View style={styles.buttonBox}>
           <TouchableHighlight style={styles.button}
-            onPress = {() => this.onButtonPress()} 
+          	onPress = {() => this.onButtonPress()} 
             underlayColor= '#99d9f4'>
             <Text style={styles.buttonText}>Next</Text>
           </TouchableHighlight>
@@ -132,4 +114,4 @@ class Question3 extends Component{
     }
 }
 
-module.exports = Question3;
+module.exports = CheckPassword;

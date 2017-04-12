@@ -13,7 +13,8 @@ import{
 } from 'react-native';
 
 var Info = require('./ActivityInfo');
-var password = require('./password');
+var CheckPassword = require('./CheckPassword');
+
 var styles = StyleSheet.create({
   container:{
     justifyContent: 'space-between',
@@ -73,7 +74,7 @@ class Start extends Component{
     onTakePressed(){
         this.props.navigator.push({
             title: 'Password',
-            component: password,
+            component: CheckPassword,
            
         });
     }
