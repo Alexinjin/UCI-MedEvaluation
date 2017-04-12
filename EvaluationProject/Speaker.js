@@ -1,5 +1,5 @@
 'use strict';
-
+var Password = require('./Password');
 import React, {Component} from 'react'
 import{
   StyleSheet,
@@ -76,7 +76,16 @@ var styles = StyleSheet.create({
 
 class Speaker extends Component{
 
+    onButtonPress(){
+        this.props.navigator.push({
+        title: "Password",
+        component: Password,
+      });
+    }
+    
+
     render(){
+    
     return(
       <View style={styles.container}>
        <View style={styles.imageBox}>
@@ -92,7 +101,7 @@ class Speaker extends Component{
               autoCapitalize = 'none'/>
           </View>
         <View style={styles.buttonBox}>
-          <TouchableHighlight style={styles.button}
+          <TouchableHighlight onPress = {() => this.onButtonPress()} style={styles.button}
             underlayColor= '#99d9f4'>
             <Text style={styles.buttonText}>Next</Text>
           </TouchableHighlight>
