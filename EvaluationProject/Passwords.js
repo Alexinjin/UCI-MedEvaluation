@@ -1,6 +1,6 @@
 'use strict';
 var Complete = require('./Complete');
-var Password = require('./Password');
+//var Password = require('./Passwords');
 import React, { Component } from 'react'
 import {
 	StyleSheet,

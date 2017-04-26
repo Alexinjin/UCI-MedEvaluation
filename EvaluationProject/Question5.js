@@ -1,5 +1,5 @@
 'use strict';
-var Password = require('./Password');
+var Password = require('./Passwords');
 import React, {Component} from 'react'
 import{
   StyleSheet,
