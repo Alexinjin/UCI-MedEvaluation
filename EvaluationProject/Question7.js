@@ -1,5 +1,5 @@
 'use strict';
-
+var Password = require('./Password');
 import React, {Component} from 'react'
 import{
   StyleSheet,
@@ -10,43 +10,52 @@ import{
   Image,
   navigator,
   BackIOS,
-  ScrollView,
 } from 'react-native';
-import CheckboxList from 'react-native-check-box'
-var question2 = require('./Question2');
+
+var question5 = require('./Question6');
 
 var styles = StyleSheet.create({
   container:{
     flex:1,
-    alignItems:'center',
+    alignItems:'flex-start',
     flexDirection:'column',
     paddingTop:69,
-    justifyContent:'space-between',
-  },
-  TextBox:{
-    flex:4,
-    marginHorizontal: 10,
-    alignSelf:'flex-start',
+    //justifyContent:'space-between',
   },
   text:{
     color: 'black',
     backgroundColor: 'white',
     fontSize: 18,
+    marginHorizontal:20,
   },
   imageBox:{
-    flex:2,
+    flex:1,
     alignSelf:'flex-start',
     marginLeft: 10,
-
+    justifyContent:'space-between',
   },
-  imagetitle:{
+  titleImage:{
     width: 136,
     height: 35,
+  },
+  inputBox:{
+    paddingTop:30,
+    flexDirection:'column',
+    flex:1,
+    alignSelf:'stretch',
+    justifyContent:'space-between',
+    marginHorizontal: 25,
+  },
+  input:{
+    height: 150,
+    borderColor: 'grey',
+    borderWidth: 1.5,
+    borderRadius: 10,
   },
   buttonBox:{
     flexDirection:'column',
     justifyContent: 'flex-end',
-    flex:3,
+    flex:4,
     paddingBottom: 20,
     alignSelf:'stretch',
     marginHorizontal: 30,
@@ -66,34 +75,28 @@ var styles = StyleSheet.create({
   },
 });
 
-class Question1 extends Component{
-    onNextPressed(){
-      this.props.navigator.push({
-            title: 'Question 2',
-            component: question2,
-        });
-    }
+class Question6 extends Component{
+
 
     render(){
+    
     return(
       <View style={styles.container}>
        <View style={styles.imageBox}>
             <Image source={require('./Resources/title.png')}
-                style={styles.imagetitle}/>
+                style={styles.titleImage}/>
         </View>
-        <View style={styles.TextBox}>
-          <Text style={styles.text}>Question1 {'\n\n'}
-            Overall evaluation of this event:{'\n\n'}
-            Excellent{'\n\n'}
-            Very Good{'\n\n'}
-            Good{'\n\n'}
-            Fair{'\n\n'}
-            Poor{'\n\n'}
+         <Text style={styles.text}>
+            Other Comments:{'\n'}
+
             </Text>
-        </View>
+         <View style={styles.inputBox}>
+          <TextInput style = {styles.input}
+              placeholder = ""
+              autoCapitalize = 'none'/>
+          </View>
         <View style={styles.buttonBox}>
           <TouchableHighlight style={styles.button}
-            onPress = {this.onNextPressed.bind(this)}
             underlayColor= '#99d9f4'>
             <Text style={styles.buttonText}>Next</Text>
           </TouchableHighlight>
@@ -103,4 +106,4 @@ class Question1 extends Component{
     }
 }
 
-module.exports = Question1;
+module.exports = Question6;

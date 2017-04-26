@@ -9,61 +9,89 @@ import {
 	KeyboardAvoidingView
 }from 'react-native';
 
+var Start = require('./Start');
+
 var styles = StyleSheet.create({
-	description: {
-		marginBottom: 20,
-		fontSize: 30,
-		textAlign: 'center',
-		color: 'black'
-	},
-
-	container: {
-		padding: 30,
-		marginTop: 100,
-		alignItems: 'center'
-	},
-
-
-	image1:{
-
-		width: 136,
-    	height: 35,
-    	marginTop: 69,
-    	marginLeft:10,
-    	//marginBottom: 50
-	},
-
-	image2:{
-		width: 200,
-		height: 200
-	}
+  container:{
+    flex:1,
+    alignItems:'center',
+    flexDirection:'column',
+    paddingTop:69,
+    justifyContent:'space-between',
+  },
+  imageBox:{
+    flex:1,
+    alignSelf:'flex-start',
+    marginLeft: 10,
+    justifyContent:'space-between',
+  },
+  titleImage:{
+    width: 136,
+    height: 35,
+  },
+  image:{
+  	//alignSelf:'center',
+  	width: 150,
+    height: 150,
+    //padding:30,
+  },
+  buttonBox:{
+    flexDirection:'column',
+    justifyContent: 'flex-end',
+    flex:4,
+    paddingBottom: 20,
+    alignSelf:'stretch',
+    marginHorizontal: 30,
+  },
+  buttonText:{
+    fontSize:18,
+    color: 'white',
+    textAlign: 'center',
+  },
+  button:{
+    backgroundColor:'#48BBEC',
+    borderColor:'#48BBEC',
+    borderRadius: 10,
+    alignSelf:'stretch',
+    padding:14,
+    justifyContent: 'center',
+  },
+  text:{
+    color: 'black',
+    backgroundColor: 'white',
+    fontSize: 30,
+    marginHorizontal:30,
+    paddingTop: 20,
+  },
 });
 
 class Complete extends Component {
 
+	onButtonPress(){
+    	this.props.navigator.popToTop();
+  	}
 
 	render(){
 		return(
-			<KeyboardAvoidingView behavior='padding'>
-			<Image source={require('./Resources/title.png')} style = {styles.image1}/>
-			<View style = {styles.container}>
-			  <Text style = {styles.description}>
-			  Complete! Yeah!
-			  </Text>
+		      <View style={styles.container}>
+       <View style={styles.imageBox}>
+            <Image source={require('./Resources/title.png')}
+                style={styles.titleImage}/>
+            
+        </View>
+        <Image source={require('./Resources/complete.png')}
+                style={styles.image}/>
+        <Text style={styles.text}>Completed.</Text>
+        <View style={styles.buttonBox}>
+          <TouchableHighlight style={styles.button}
+          	onPress = {() => this.onButtonPress()} 
+            underlayColor= '#99d9f4'>
+            <Text style={styles.buttonText}>Return</Text>
+          </TouchableHighlight>
 
-			  <Image source={require('./Resources/complete.png')} style={styles.image2}/>
-			  <Text style = {styles.description}>
-			  Password for this Eval is:
-			  </Text>
-
-			  <Text style = {styles.description}>
-			  XXXXXXXX
-			  </Text>
-
-			</View>
-
-			</KeyboardAvoidingView>
-			);
+        </View>
+      </View>)
+		
 	}
 }
 module.exports = Complete;

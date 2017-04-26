@@ -1,5 +1,5 @@
 'use strict';
-
+var Password = require('./Password');
 import React, {Component} from 'react'
 import{
   StyleSheet,
@@ -10,10 +10,9 @@ import{
   Image,
   navigator,
   BackIOS,
-  ScrollView,
 } from 'react-native';
 
-var question4 = require('./Question4');
+var question6 = require('./Question6');
 
 var styles = StyleSheet.create({
   container:{
@@ -23,36 +22,46 @@ var styles = StyleSheet.create({
     paddingTop:69,
     justifyContent:'space-between',
   },
-  TextBox:{
-    flex:8,
-    marginHorizontal: 15,
-    alignSelf:'flex-start',
-  },
   text:{
     color: 'black',
     backgroundColor: 'white',
-    fontSize: 16,
-    flex:7,
-  },
-  title:{
-    color: 'black',
-    backgroundColor: 'white',
-    fontSize: 25,
-    flex:1,
+    fontSize: 18,
+    marginHorizontal:20,
   },
   imageBox:{
     flex:1,
     alignSelf:'flex-start',
     marginLeft: 10,
+    justifyContent:'space-between',
   },
-  imagetitle:{
+  titleImage:{
     width: 136,
     height: 35,
+  },
+  image:{
+    //alignSelf:'center',
+    width: 80,
+    height: 80,
+    //padding:30,
+  },
+  inputBox:{
+    paddingTop:30,
+    flexDirection:'column',
+    flex:1,
+    alignSelf:'stretch',
+    justifyContent:'space-between',
+    marginHorizontal: 25,
+  },
+  input:{
+    height: 150,
+    borderColor: 'grey',
+    borderWidth: 1.5,
+    borderRadius: 10,
   },
   buttonBox:{
     flexDirection:'column',
     justifyContent: 'flex-end',
-    flex:1,
+    flex:4,
     paddingBottom: 20,
     alignSelf:'stretch',
     marginHorizontal: 30,
@@ -72,43 +81,31 @@ var styles = StyleSheet.create({
   },
 });
 
-class Question3 extends Component{
+class Question5 extends Component{
+
     onButtonPress(){
         this.props.navigator.push({
-        title: "Question4",
-        component: question4,
+        title: "Question6",
+        component: question6,
       });
     }
-
     render(){
+    
     return(
       <View style={styles.container}>
        <View style={styles.imageBox}>
             <Image source={require('./Resources/title.png')}
-                style={styles.imagetitle}/>
+                style={styles.titleImage}/>
         </View>
-        <View style={styles.TextBox}>
-        <ScrollView>
-          <Text style={styles.title}>Question3</Text>
-          <Text style={styles.text}>
-            Please rate the speaker(s) and write constructive suggestions to aid
-            the speaker in future presentations: {'\n\n'}
-            Speaker: {'\n'}
-            Topic: {'\n\n'}
-            1.Delivery{'\n\n'}
-            -Excellent -Very Good -Good -Fair -Poor -None {'\n\n'}
-            2.Content{'\n\n'}
-            -Excellent -Very Good -Good -Fair -Poor -None {'\n\n'}
-            3.Slides/Handouts{'\n\n'}
-            -Excellent -Very Good -Good -Fair -Poor -None {'\n'}
-            4.Practical Value{'\n\n'}
-            -Excellent -Very Good -Good -Fair -Poor -None {'\n\n'}
-            5.Was there a bias in this presentation?{'\n\n'}
-            -Excellent -Very Good -Good -Fair -Poor -None {'\n'}
+         <Text style={styles.text}>
+            Please suggest other topics that should be covered in futher activities:{'\n'}
 
             </Text>
-            </ScrollView>
-        </View>
+         <View style={styles.inputBox}>
+          <TextInput style = {styles.input}
+              placeholder = ""
+              autoCapitalize = 'none'/>
+          </View>
         <View style={styles.buttonBox}>
           <TouchableHighlight style={styles.button}
             onPress = {() => this.onButtonPress()} 
@@ -121,4 +118,4 @@ class Question3 extends Component{
     }
 }
 
-module.exports = Question3;
+module.exports = Question5;

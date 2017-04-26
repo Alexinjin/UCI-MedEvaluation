@@ -10,6 +10,7 @@ import{
   Image,
   navigator,
   BackIOS,
+  ScrollView,
 } from 'react-native';
 
 var question3 = require('./Question3');
@@ -31,7 +32,7 @@ var styles = StyleSheet.create({
     color: 'black',
     backgroundColor: 'white',
     fontSize: 18,
-    flex:3,
+    flex:9,
   },
   title:{
     color: 'black',
@@ -40,7 +41,7 @@ var styles = StyleSheet.create({
     flex:1,
   },
   imageBox:{
-    flex:2,
+    flex:1,
     alignSelf:'flex-start',
     marginLeft: 10,
 
@@ -49,23 +50,10 @@ var styles = StyleSheet.create({
     width: 136,
     height: 35,
   },
-  inputBox:{
-    flexDirection:'column',
-    flex:1,
-    alignSelf:'stretch',
-    justifyContent:'space-between',
-    marginHorizontal: 25,
-  },
-  input:{
-    height: 35,
-    borderColor: 'grey',
-    borderWidth: 1.5,
-    borderRadius: 10,
-  },
   buttonBox:{
     flexDirection:'column',
     justifyContent: 'flex-end',
-    flex:3,
+    flex:1,
     paddingBottom: 20,
     alignSelf:'stretch',
     marginHorizontal: 30,
@@ -101,24 +89,25 @@ class Question2 extends Component{
                 style={styles.imagetitle}/>
         </View>
         <View style={styles.TextBox}>
-          <Text style={styles.title}>Question2 {'\n\n'}</Text>
-          <Text style={styles.text}>
+          <ScrollView>
+            <Text style={styles.title}>Question2{'\n'}</Text>
+            <Text style={styles.text}>
             Did this event meet the objectives
             of this Grand Rounds series? Are you able to: {'\n\n'}
             1.Distinguish the diagnosis and management of diseases
-            and conditions encountered by ophthalmologists.{'\n\n'}
+            and conditions encountered by ophthalmologists.{'\n'}
             - Yes      - No         - None {'\n\n'}
             2.Learn new surgical and therapeutic treatment of ophthalmic diseases
-            to better manage complicated cases.{'\n\n'}
+            to better manage complicated cases.{'\n'}
             - Yes      - No         - None {'\n\n'}
             3.Cite current research findings in the field of ophthalmology 
-            and critically analyze new landmark contributions in ophthalmology research.{'\n\n'}
+            and critically analyze new landmark contributions in ophthalmology research.{'\n'}
             - Yes      - No         - None {'\n\n'}
             4.Interpret the appropriate utilization, humanitarian implementation, 
             and respect patient privacy and the requirements for informed consenting.{'\n\n'}
             - Yes      - No         - None {'\n\n'}
-
             </Text>
+          </ScrollView>
         </View>
         <View style={styles.buttonBox}>
           <TouchableHighlight style={styles.button}

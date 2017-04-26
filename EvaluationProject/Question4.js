@@ -12,7 +12,7 @@ import{
   BackIOS,
 } from 'react-native';
 
-var question1 = require('./Question1');
+var question5 = require('./Question5');
 
 var styles = StyleSheet.create({
   container:{
@@ -26,7 +26,7 @@ var styles = StyleSheet.create({
     color: 'black',
     backgroundColor: 'white',
     fontSize: 18,
-    marginHorizontal:10,
+    marginHorizontal:20,
   },
   imageBox:{
     flex:1,
@@ -53,7 +53,7 @@ var styles = StyleSheet.create({
     marginHorizontal: 25,
   },
   input:{
-    height: 35,
+    height: 150,
     borderColor: 'grey',
     borderWidth: 1.5,
     borderRadius: 10,
@@ -82,8 +82,12 @@ var styles = StyleSheet.create({
 });
 
 class Question4 extends Component{
-
-
+    onButtonPress(){
+        this.props.navigator.push({
+        title: "Question5",
+        component: question5,
+      });
+    }
     render(){
     
     return(
@@ -98,11 +102,12 @@ class Question4 extends Component{
             </Text>
          <View style={styles.inputBox}>
           <TextInput style = {styles.input}
-              placeholder = " Enter evaluation password:"
+              placeholder = ""
               autoCapitalize = 'none'/>
           </View>
         <View style={styles.buttonBox}>
           <TouchableHighlight style={styles.button}
+            onPress = {() => this.onButtonPress()} 
             underlayColor= '#99d9f4'>
             <Text style={styles.buttonText}>Next</Text>
           </TouchableHighlight>
