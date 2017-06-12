@@ -25,15 +25,15 @@ var styles = StyleSheet.create({
   TextBox:{
     flex:1,
     marginHorizontal: 10,
-    alignSelf:'flex-start',
+    //alignSelf:'flex-start',
   },
   text:{
     color: 'black',
-    fontSize: 18,
+    fontSize: 20,
     alignSelf: 'center',
   },
   imageBox:{
-    flex:2,
+    flex:1,
     alignSelf:'flex-start',
     marginLeft: 10,
 
@@ -45,7 +45,7 @@ var styles = StyleSheet.create({
   buttonBox:{
     flexDirection:'column',
     justifyContent: 'flex-end',
-    flex:3,
+    flex:4,
     paddingBottom: 20,
     alignSelf:'stretch',
     marginHorizontal: 30,
@@ -63,10 +63,14 @@ var styles = StyleSheet.create({
     padding:14,
     justifyContent: 'center',
   },
-
+  chooseText:{
+    color: 'black',
+    fontSize: 14,
+    alignSelf: 'center',
+  },
   choiceButtonBox:{
-    paddingLeft: 10,
-    alignSelf:'flex-start',
+    padding: 10,
+    alignSelf:'stretch',
     justifyContent: 'space-between',
 
   },
@@ -141,7 +145,10 @@ class Question1 extends Component{
 
     onButtonPress3(){
       if(this.fair == 0){
+          this.excellent = 0;
+          this.verygood = 0;
           this.fair = 1;
+          this.poor = 0;
           this.setState({
           excellent_color: "white",
           verygood_color: "white",
@@ -159,6 +166,9 @@ class Question1 extends Component{
 
     onButtonPress4(){
       if(this.poor == 0){
+          this.excellent = 0;
+          this.verygood = 0;
+          this.fair = 0;
           this.poor = 1;
           this.setState({
           excellent_color: "white",
@@ -195,7 +205,7 @@ class Question1 extends Component{
 
         <View style={styles.TextBox}>
           <Text style={styles.text}>
-            Overall evaluation of this event:
+                Overall evaluation of this event:
             </Text>
         </View>
 
@@ -209,7 +219,7 @@ class Question1 extends Component{
             onPress = {this.onButtonPress1.bind(this)}
             underlayColor= '#99d9f4'>
 
-            <Text style = {styles.text}>
+            <Text style = {styles.chooseText}>
               Excellent
             </Text>
             </TouchableHighlight>
@@ -221,7 +231,7 @@ class Question1 extends Component{
                                         borderRadius: 10,
                                         padding:5}}
             onPress = {this.onButtonPress2.bind(this)}>
-            <Text style = {styles.text}>
+            <Text style = {styles.chooseText}>
               Very Good
             </Text>
 
@@ -234,7 +244,7 @@ class Question1 extends Component{
                                         borderRadius: 10,
                                         padding:5}}
             onPress = {this.onButtonPress3.bind(this)}>
-            <Text style = {styles.text}>
+            <Text style = {styles.chooseText}>
               Fair
             </Text>
           </TouchableHighlight>
@@ -246,7 +256,7 @@ class Question1 extends Component{
                                         borderRadius: 10,
                                         padding:5}}
             onPress = {this.onButtonPress4.bind(this)}>
-            <Text style = {styles.text}>
+            <Text style = {styles.chooseText}>
               Poor
             </Text>
           </TouchableHighlight>
