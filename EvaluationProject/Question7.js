@@ -10,10 +10,9 @@ import{
   Image,
   navigator,
   BackIOS,
-  ScrollView,
 } from 'react-native';
 
-var question3 = require('./Question3');
+var question8 = require('./Question8');
 
 var styles = StyleSheet.create({
   container:{
@@ -25,14 +24,14 @@ var styles = StyleSheet.create({
   },
   TextBox:{
     flex:8,
-    marginHorizontal: 10,
+    marginHorizontal: 15,
     alignSelf:'flex-start',
   },
   text:{
     color: 'black',
     backgroundColor: 'white',
     fontSize: 18,
-    flex:9,
+    flex:7,
   },
   title:{
     color: 'black',
@@ -50,10 +49,23 @@ var styles = StyleSheet.create({
     width: 136,
     height: 35,
   },
+  inputBox:{
+    flexDirection:'column',
+    flex:1,
+    alignSelf:'stretch',
+    justifyContent:'space-between',
+    marginHorizontal: 25,
+  },
+  input:{
+    height: 35,
+    borderColor: 'grey',
+    borderWidth: 1.5,
+    borderRadius: 10,
+  },
   buttonBox:{
     flexDirection:'column',
     justifyContent: 'flex-end',
-    flex:1,
+    flex:2,
     paddingBottom: 20,
     alignSelf:'stretch',
     marginHorizontal: 30,
@@ -73,12 +85,12 @@ var styles = StyleSheet.create({
   },
 });
 
-class Question2 extends Component{
-    onNextPressed(){
-      this.props.navigator.push({
-            title: 'Question 3',
-            component: question3,
-        });
+class Question7 extends Component{
+    onButtonPress(){
+        this.props.navigator.push({
+        title: "Question8",
+        component: question8,
+      });
     }
 
     render(){
@@ -89,28 +101,24 @@ class Question2 extends Component{
                 style={styles.imagetitle}/>
         </View>
         <View style={styles.TextBox}>
-          <ScrollView>
-            <Text style={styles.text}>
-            Did this event meet the objectives
-            of this Grand Rounds series? Are you able to: {'\n\n'}
-            1.Distinguish the diagnosis and management of diseases
-            and conditions encountered by ophthalmologists.{'\n'}
-            - Yes      - No         - None {'\n\n'}
-            2.Learn new surgical and therapeutic treatment of ophthalmic diseases
-            to better manage complicated cases.{'\n'}
-            - Yes      - No         - None {'\n\n'}
-            3.Cite current research findings in the field of ophthalmology 
-            and critically analyze new landmark contributions in ophthalmology research.{'\n'}
-            - Yes      - No         - None {'\n\n'}
-            4.Interpret the appropriate utilization, humanitarian implementation, 
-            and respect patient privacy and the requirements for informed consenting.{'\n\n'}
-            - Yes      - No         - None {'\n\n'}
+          <Text style={styles.text}>
+            Issues in cultural and linguistic competency (e.g. differences in prevalence, diagnosis, 
+            treatment in diverse populations, linguistic skills, pertinent cultural data) were adequately
+            addressed in this activity: {'\n\n'}
+
+            -Strongly Agree{'\n'}
+            -Agree {'\n'}
+            -Neutral{'\n'}
+            -Disgress {'\n'}
+            -Strong Disagree{'\n'}
+            -N/A {'\n'}
+            
+
             </Text>
-          </ScrollView>
         </View>
         <View style={styles.buttonBox}>
           <TouchableHighlight style={styles.button}
-            onPress = {this.onNextPressed.bind(this)}
+            onPress = {() => this.onButtonPress()} 
             underlayColor= '#99d9f4'>
             <Text style={styles.buttonText}>Next</Text>
           </TouchableHighlight>
@@ -120,4 +128,4 @@ class Question2 extends Component{
     }
 }
 
-module.exports = Question2;
+module.exports = Question7;

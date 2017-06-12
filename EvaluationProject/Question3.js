@@ -89,7 +89,6 @@ class Question3 extends Component{
         </View>
         <View style={styles.TextBox}>
         <ScrollView>
-          <Text style={styles.title}>Question3</Text>
           <Text style={styles.text}>
             Please rate the speaker(s) and write constructive suggestions to aid
             the speaker in future presentations: {'\n\n'}

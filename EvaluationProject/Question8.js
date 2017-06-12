@@ -12,7 +12,7 @@ import{
   BackIOS,
 } from 'react-native';
 
-var question7 = require('./Question7');
+var lastpage = require('./LastPage');
 
 var styles = StyleSheet.create({
   container:{
@@ -26,8 +26,7 @@ var styles = StyleSheet.create({
     color: 'black',
     backgroundColor: 'white',
     fontSize: 18,
-    marginLeft:10,
-    //marginHorizontal:10,
+    marginHorizontal:10,
   },
   imageBox:{
     flex:1,
@@ -82,16 +81,16 @@ var styles = StyleSheet.create({
   },
 });
 
-class Question6 extends Component{
+class Question8 extends Component{
     onButtonPress(){
         this.props.navigator.push({
-        title: "Question7",
-        component: question7,
+        title: "Compelete",
+        component: lastpage,
       });
     }
 
     render(){
-      
+    
     return(
       <View style={styles.container}>
        <View style={styles.imageBox}>
@@ -99,17 +98,20 @@ class Question6 extends Component{
                 style={styles.titleImage}/>
         </View>
          <Text style={styles.text}>
-            Other Comments:{'\n'}
+            Resources on cultural and lingusitic competency have been included in your materials. 
+            How can we further meet educational needs in this area?{'\n'}
 
             </Text>
          <View style={styles.inputBox}>
-          <TextInput style = {styles.input} />
+          <TextInput style = {styles.input}
+              placeholder = " Enter your opinion:"
+              autoCapitalize = 'none'/>
           </View>
         <View style={styles.buttonBox}>
           <TouchableHighlight style={styles.button}
           onPress = {() => this.onButtonPress()} 
             underlayColor= '#99d9f4'>
-            <Text style={styles.buttonText}>Next</Text>
+            <Text style={styles.buttonText}>Sumbit</Text>
           </TouchableHighlight>
 
         </View>
@@ -117,4 +119,4 @@ class Question6 extends Component{
     }
 }
 
-module.exports = Question6;
+module.exports = Question8;
