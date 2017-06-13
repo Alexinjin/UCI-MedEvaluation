@@ -84,7 +84,7 @@ var styles = StyleSheet.create({
 class Question4 extends Component{
     onButtonPress(){
         this.props.navigator.push({
-        title: "Question5",
+        title: "Question 5",
         component: question5,
       });
     }

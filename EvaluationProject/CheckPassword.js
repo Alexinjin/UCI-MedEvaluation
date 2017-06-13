@@ -80,7 +80,7 @@ class CheckPassword extends Component{
 
     onButtonPress(){
         this.props.navigator.push({
-        title: "Question1",
+        title: "Question 1",
         component: question1,
       });
     }

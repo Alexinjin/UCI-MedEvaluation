@@ -88,26 +88,26 @@ class Question2 extends Component{
             <Image source={require('./Resources/title.png')}
                 style={styles.imagetitle}/>
         </View>
-        <View style={styles.TextBox}>
+        
           <ScrollView>
-            <Text style={styles.text}>
+            <Text style={styles.baseText}>
             Did this event meet the objectives
             of this Grand Rounds series? Are you able to: {'\n\n'}
-            1.Distinguish the diagnosis and management of diseases
+            1. Distinguish the diagnosis and management of diseases
             and conditions encountered by ophthalmologists.{'\n'}
             - Yes      - No         - None {'\n\n'}
-            2.Learn new surgical and therapeutic treatment of ophthalmic diseases
+            2. Learn new surgical and therapeutic treatment of ophthalmic diseases
             to better manage complicated cases.{'\n'}
             - Yes      - No         - None {'\n\n'}
-            3.Cite current research findings in the field of ophthalmology 
+            3. Cite current research findings in the field of ophthalmology 
             and critically analyze new landmark contributions in ophthalmology research.{'\n'}
             - Yes      - No         - None {'\n\n'}
-            4.Interpret the appropriate utilization, humanitarian implementation, 
+            4. Interpret the appropriate utilization, humanitarian implementation, 
             and respect patient privacy and the requirements for informed consenting.{'\n\n'}
             - Yes      - No         - None {'\n\n'}
             </Text>
           </ScrollView>
-        </View>
+        
         <View style={styles.buttonBox}>
           <TouchableHighlight style={styles.button}
             onPress = {this.onNextPressed.bind(this)}

@@ -85,7 +85,7 @@ class Question5 extends Component{
 
     onButtonPress(){
         this.props.navigator.push({
-        title: "Question6",
+        title: "Question 6",
         component: question6,
       });
     }

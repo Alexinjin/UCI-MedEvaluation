@@ -75,7 +75,7 @@ var styles = StyleSheet.create({
 class Question3 extends Component{
     onButtonPress(){
         this.props.navigator.push({
-        title: "Question4",
+        title: "Question 4",
         component: question4,
       });
     }
@@ -89,20 +89,20 @@ class Question3 extends Component{
         </View>
         <View style={styles.TextBox}>
         <ScrollView>
-          <Text style={styles.text}>
+          <Text style={styles.baseText}>
             Please rate the speaker(s) and write constructive suggestions to aid
             the speaker in future presentations: {'\n\n'}
             Speaker: {'\n'}
             Topic: {'\n\n'}
-            1.Delivery{'\n\n'}
+            1. Delivery{'\n\n'}
             -Excellent -Very Good -Good -Fair -Poor -None {'\n\n'}
-            2.Content{'\n\n'}
+            2. Content{'\n\n'}
             -Excellent -Very Good -Good -Fair -Poor -None {'\n\n'}
-            3.Slides/Handouts{'\n\n'}
-            -Excellent -Very Good -Good -Fair -Poor -None {'\n'}
-            4.Practical Value{'\n\n'}
+            3. Slides/Handouts{'\n\n'}
             -Excellent -Very Good -Good -Fair -Poor -None {'\n\n'}
-            5.Was there a bias in this presentation?{'\n\n'}
+            4. Practical Value{'\n\n'}
+            -Excellent -Very Good -Good -Fair -Poor -None {'\n\n'}
+            5. Was there a bias in this presentation?{'\n\n'}
             -Excellent -Very Good -Good -Fair -Poor -None {'\n'}
 
             </Text>
