@@ -1,5 +1,7 @@
 'use strict';
 var Password = require('./Passwords');
+var Speaker3 = require('./Speaker3');
+
 import React, {Component} from 'react'
 import{
   StyleSheet,
@@ -12,7 +14,7 @@ import{
   BackIOS,
 } from 'react-native';
 
-var question6 = require('./Question6');
+
 
 var styles = StyleSheet.create({
   container:{
@@ -25,27 +27,20 @@ var styles = StyleSheet.create({
   text:{
     color: 'black',
     backgroundColor: 'white',
-    fontSize: 18,
-    marginHorizontal:20,
+    fontSize: 30,
+    margin: 80,
+    flex:2,
   },
   imageBox:{
     flex:1,
     alignSelf:'flex-start',
     marginLeft: 10,
-    justifyContent:'space-between',
   },
-  titleImage:{
+  image:{
     width: 136,
     height: 35,
   },
-  image:{
-    //alignSelf:'center',
-    width: 80,
-    height: 80,
-    //padding:30,
-  },
   inputBox:{
-    paddingTop:30,
     flexDirection:'column',
     flex:1,
     alignSelf:'stretch',
@@ -53,8 +48,7 @@ var styles = StyleSheet.create({
     marginHorizontal: 25,
   },
   input:{
-    fontSize: 16,
-    height: 150,
+    height: 35,
     borderColor: 'grey',
     borderWidth: 1.5,
     borderRadius: 10,
@@ -73,6 +67,7 @@ var styles = StyleSheet.create({
     textAlign: 'center',
   },
   button:{
+    marginVertical: 10,
     backgroundColor:'#48BBEC',
     borderColor:'#48BBEC',
     borderRadius: 10,
@@ -82,48 +77,75 @@ var styles = StyleSheet.create({
   },
 });
 
-class Question5 extends Component{
+class Speaker2 extends Component{
 
+
+    constructor(props){
+      super(props);
+        this.state = {
+          name2 : "",
+          topic2 : "",
+        }
+    }
     onButtonPress(){
         this.props.navigator.push({
-        title: "Question6",
-        component: question6,
+        title: "Password",
+        component: Password,
         passProps:{
-          resultQ1: this.props.resultQ1,
-          resultQ2: this.props.resultQ2,
-          resultQ3: this.props.resultQ3,
-          resultQ4: this.props.resultQ4,
-          resultQ5: this.state.result
+          title : this.props.title,
+          department : this.props.department,
+          name1 : this.props.name1,
+          topic1 : this.props.topic1,
+          name2 : this.state.name2,
+          topic2 : this.state.topic2,
         }
       });
     }
-    constructor(props){
-      super(props);
-      this.state = {result:''};
+    
+    onMoreButton(){
+      this.props.navigator.push({
+        title:"Speaker #3",
+        component: Speaker3,
+        passProps:{
+          title : this.props.title,
+          department : this.props.department,
+          name1 : this.props.name1,
+          topic1 : this.props.topic1,
+          name2 : this.state.name2,
+          topic2 : this.state.topic2,
+        }
+      })
     }
+
     render(){
     
-
     return(
       <View style={styles.container}>
        <View style={styles.imageBox}>
             <Image source={require('./Resources/title.png')}
-                style={styles.titleImage}/>
+                style={styles.image}/>
         </View>
-          <Text style={styles.text}>
-            Please suggest other topics that should be covered in futher activities:{'\n'}
-          </Text>
+
          <View style={styles.inputBox}>
           <TextInput style = {styles.input}
-              multiline = {true}
-              numberOfLine = {4}
-              placeholder = ""
-              onChangeText = {(result) => this.setState({result})}
+              placeholder = " Speaker's name:"
+              onChangeText = {(name2) => this.setState({name2})}
+              autoCapitalize = 'none'/>
+          <TextInput style = {styles.input}          
+              placeholder = ' Topic:'
+              onChangeText = {(topic2) => this.setState({topic2})}
               autoCapitalize = 'none'/>
           </View>
+
+
         <View style={styles.buttonBox}>
-          <TouchableHighlight style={styles.button}
-            onPress = {() => this.onButtonPress()} 
+
+          <TouchableHighlight onPress = {() => this.onMoreButton()} style={styles.button}
+            underlayColor= '#99d9f4'>
+            <Text style={styles.buttonText}>More</Text>
+          </TouchableHighlight>
+
+          <TouchableHighlight onPress = {() => this.onButtonPress()} style={styles.button}
             underlayColor= '#99d9f4'>
             <Text style={styles.buttonText}>Next</Text>
           </TouchableHighlight>
@@ -133,4 +155,4 @@ class Question5 extends Component{
     }
 }
 
-module.exports = Question5;
+module.exports = Speaker2;

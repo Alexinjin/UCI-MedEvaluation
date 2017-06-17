@@ -26,8 +26,7 @@ var styles = StyleSheet.create({
     color: 'black',
     backgroundColor: 'white',
     fontSize: 18,
-    marginLeft:10,
-    //marginHorizontal:10,
+    marginHorizontal:20,
   },
   imageBox:{
     flex:1,
@@ -54,7 +53,8 @@ var styles = StyleSheet.create({
     marginHorizontal: 25,
   },
   input:{
-    height: 35,
+    fontSize: 16,
+    height: 150,
     borderColor: 'grey',
     borderWidth: 1.5,
     borderRadius: 10,
@@ -85,11 +85,23 @@ var styles = StyleSheet.create({
 class Question6 extends Component{
     onButtonPress(){
         this.props.navigator.push({
-        title: "Question 7",
+        title: "Question7",
         component: question7,
+        passProps:{
+          resultQ1: this.props.resultQ1,
+          resultQ2: this.props.resultQ2,
+          resultQ3: this.props.resultQ3,
+          resultQ4: this.props.resultQ4,
+          resultQ5: this.props.resultQ5,
+          resultQ6: this.state.result
+        }
       });
     }
 
+    constructor(props){
+      super(props);
+      this.state = {result:''};
+    }
     render(){
       
     return(
@@ -102,8 +114,12 @@ class Question6 extends Component{
             Other Comments:{'\n'}
 
             </Text>
-         <View style={styles.inputBox}>
-          <TextInput style = {styles.input} />
+          <View style={styles.inputBox}>
+            <TextInput style = {styles.input} 
+              multiline =  {true}
+              numberOfLine = {4}
+              placeholder = ""
+              onChangeText = {(result) => this.setState({result})}/>
           </View>
         <View style={styles.buttonBox}>
           <TouchableHighlight style={styles.button}

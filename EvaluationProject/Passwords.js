@@ -38,13 +38,13 @@ var styles = StyleSheet.create({
 	},
 
 	buttonText:{
-		fontSize: 18,
+		fontSize: 14,
 		color: 'white',
 		alignSelf: 'center'
 	},
 
 	button: {
-		height: 36,
+		height: 45,
 		flex: 1,
 		marginLeft: 20,
 		marginRight: 20,
@@ -84,37 +84,58 @@ class SearchPage extends Component {
 
 
 	onButtonPress(){
-		this.props.navigator.push({
-    	title: "Finished",
-    	component: Complete,
-  });
+		var result = this.state.password
+		
+			this.props.navigator.push({
+    		title: "Finished",
+    		component: Complete,
+    		passProps: {
+    		
+	 			title : this.props.title,
+				department : this.props.department,
+				name1 : this.props.name1,
+				topic1 : this.props.topic1,
+				name2 : this.props.name2,
+				topic2 : this.props.topic2,
+				name3 : this.props.name3,
+				topic3 : this.props.topic3,
+				name4 : this.props.name4,
+				topic4 : this.props.topic4,
+				name5 : this.props.name5,
+				topic5 : this.props.topic5,  
+				password: this.state.password, 			
+    			}
+  			
+			});
+		
+	}
+
+	constructor(props){
+		super(props);
+		this.state = {passowrd: "" };
 	}
 	render(){
 		return(
 			<KeyboardAvoidingView behavior = "padding" >
-			<Image source={require('./Resources/title.png')} style = {styles.image}/>
-			<View style = {styles.container}>
+				<Image source={require('./Resources/title.png')} style = {styles.image}/>
+				<View style = {styles.container}>
 
-				<Text style = {styles.description}> Password for Evaluation </Text>
+					<Text style = {styles.description}> Password for Evaluation </Text>
 
-				<TextInput
-			  	style = {styles.searchInput}
-			  	placeholder = 'Enter your password!'/>
+					<TextInput
+			  		style = {styles.searchInput}
+			  		placeholder = 'Enter your password!'
+			  		onChangeText = {(password) => this.setState({password}) }
+			  		/>
 
-			 	<View style = {styles.flowRight}>
+			 		<View style = {styles.flowRight}>
+						<TouchableHighlight onPress = {() => this.onButtonPress()} style = {styles.button}
+						underlayColor = '#99d9f4'>
 
-
-			  	<TouchableHighlight onPress = {() => this.onButtonPress()} style = {styles.button}
-				underlayColor = '#99d9f4'>
-
-				<Text style = {styles.buttonText} >Confirm</Text>
-				</TouchableHighlight>
-			</View>
-
-
-
-			</View>
-
+							<Text style = {styles.buttonText} >Confirm</Text>
+						</TouchableHighlight>
+					</View>
+				</View>
 			</KeyboardAvoidingView>
 			);
 	}

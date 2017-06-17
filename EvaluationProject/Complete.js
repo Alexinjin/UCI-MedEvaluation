@@ -73,15 +73,29 @@ class Complete extends Component {
 
 	render(){
 		return(
-		      <View style={styles.container}>
-       <View style={styles.imageBox}>
-            <Image source={require('./Resources/title.png')}
-                style={styles.titleImage}/>
-            
+		  <View style={styles.container}>
+        <View style={styles.imageBox}>
+          <Image source={require('./Resources/title.png')} style={styles.titleImage}/>
         </View>
         <Image source={require('./Resources/complete.png')}
                 style={styles.image}/>
         <Text style={styles.text}>Completed.</Text>
+        <Text style={styles.text}> 
+          Your Password is {'\n'}
+          {this.props.password} {"\n"}
+          title : {this.props.title} {"\n"}
+          department :{this.props.department} {"\n"}
+          name1 : {this.props.name1} ->
+          topic1 : {this.props.topic1} {"\n"}
+          name2 : {this.props.name2} ->
+          topic2 : {this.props.topic2} {"\n"}
+          name3 : {this.props.name3} ->
+          topic3 : {this.props.topic3} {"\n"}
+          name4 : {this.props.name4} ->
+          topic4 : {this.props.topic4} {"\n"}
+          name5 : {this.props.name5} ->
+          topic5 : {this.props.topic5} {"\n"}
+          </Text>
         <View style={styles.buttonBox}>
           <TouchableHighlight style={styles.button}
           	onPress = {() => this.onButtonPress()} 

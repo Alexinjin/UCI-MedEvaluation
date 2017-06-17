@@ -22,6 +22,13 @@ var styles = StyleSheet.create({
     paddingTop:69,
     justifyContent:'space-between',
   },
+
+  title:{
+    color: 'black',
+    fontSize: 20,
+    alignSelf: 'center'
+  },
+
   TextBox:{
     flex:1,
     marginHorizontal: 10,
@@ -93,6 +100,7 @@ class Question1 extends Component{
       this.verygood = 0;
       this.fair = 0;
       this.poor = 0;
+      this.result = "";
       this.state = {
         excellent_color: "white",
         verygood_color: "white",
@@ -125,7 +133,7 @@ class Question1 extends Component{
     onButtonPress2(){
       if(this.verygood == 0){
           this.excellent = 0;
-          this.verygood = 1;
+          this.verygood = 2;
           this.fair = 0;
           this.poor = 0;
           this.setState({
@@ -147,7 +155,7 @@ class Question1 extends Component{
       if(this.fair == 0){
           this.excellent = 0;
           this.verygood = 0;
-          this.fair = 1;
+          this.fair = 3;
           this.poor = 0;
           this.setState({
           excellent_color: "white",
@@ -169,7 +177,7 @@ class Question1 extends Component{
           this.excellent = 0;
           this.verygood = 0;
           this.fair = 0;
-          this.poor = 1;
+          this.poor = 4;
           this.setState({
           excellent_color: "white",
           verygood_color: "white",
@@ -188,10 +196,14 @@ class Question1 extends Component{
 
 
     onNextPressed(){
-      this.props.navigator.push({
+      if ((this.excellent || this.verygood || this.fair || this.poor) != 0){
+            this.result = this.excellent*1000 + this.verygood*100 + this.fair*10 + this.poor
+
+            this.props.navigator.push({
             title: 'Question 2',
             component: question2,
-        });
+            passProps: {resultQ1: this.result}});
+      }
     }
 
 
@@ -204,7 +216,7 @@ class Question1 extends Component{
         </View>
 
         <View style={styles.TextBox}>
-          <Text style={styles.text}>
+          <Text style={styles.title}>
                 Overall evaluation of this event:
             </Text>
         </View>
@@ -234,7 +246,6 @@ class Question1 extends Component{
             <Text style = {styles.chooseText}>
               Very Good
             </Text>
-
           </TouchableHighlight>
 
           <TouchableHighlight style = {{backgroundColor: this.state.fair_color,

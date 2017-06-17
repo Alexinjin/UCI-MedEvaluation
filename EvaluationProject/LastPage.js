@@ -82,7 +82,17 @@ class LastPage extends Component {
         <Image source={require('./Resources/complete.png')}
                 style={styles.image}/>
         <Text style={styles.text}>Completed.</Text>
-        <Text style={styles.text}>Thank you for the participation!.</Text>
+        <Text style={styles.text}>Thank you for your participation!
+          {this.props.resultQ1} {'\n'}
+          {this.props.resultQ2} {'\n'}
+          {this.props.resultQ3} {'\n'}
+          {this.props.resultQ4} {'\n'}
+          {this.props.resultQ5} {'\n'}
+          {this.props.resultQ6} {'\n'}
+          {this.props.resultQ7} {'\n'}
+          {this.props.resultQ8} {'\n'}
+
+        </Text>
         <View style={styles.buttonBox}>
           <TouchableHighlight style={styles.button}
           	onPress = {() => this.onButtonPress()} 

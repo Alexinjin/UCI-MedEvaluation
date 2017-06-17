@@ -1,5 +1,6 @@
 'use strict';
 var Password = require('./Passwords');
+
 import React, {Component} from 'react'
 import{
   StyleSheet,
@@ -12,7 +13,7 @@ import{
   BackIOS,
 } from 'react-native';
 
-var question6 = require('./Question6');
+
 
 var styles = StyleSheet.create({
   container:{
@@ -22,30 +23,23 @@ var styles = StyleSheet.create({
     paddingTop:69,
     justifyContent:'space-between',
   },
-  text:{
-    color: 'black',
-    backgroundColor: 'white',
-    fontSize: 18,
-    marginHorizontal:20,
-  },
+  // text:{
+  //   color: 'black',
+  //   backgroundColor: 'white',
+  //   fontSize: 30,
+  //   margin: 80,
+  //   flex:2,
+  // },
   imageBox:{
     flex:1,
     alignSelf:'flex-start',
     marginLeft: 10,
-    justifyContent:'space-between',
   },
-  titleImage:{
+  image:{
     width: 136,
     height: 35,
   },
-  image:{
-    //alignSelf:'center',
-    width: 80,
-    height: 80,
-    //padding:30,
-  },
   inputBox:{
-    paddingTop:30,
     flexDirection:'column',
     flex:1,
     alignSelf:'stretch',
@@ -53,8 +47,7 @@ var styles = StyleSheet.create({
     marginHorizontal: 25,
   },
   input:{
-    fontSize: 16,
-    height: 150,
+    height: 35,
     borderColor: 'grey',
     borderWidth: 1.5,
     borderRadius: 10,
@@ -73,6 +66,7 @@ var styles = StyleSheet.create({
     textAlign: 'center',
   },
   button:{
+    marginVertical: 10,
     backgroundColor:'#48BBEC',
     borderColor:'#48BBEC',
     borderRadius: 10,
@@ -82,48 +76,59 @@ var styles = StyleSheet.create({
   },
 });
 
-class Question5 extends Component{
-
+class Speaker5 extends Component{
+    constructor(props){
+      super(props);
+      this.state = {
+        name5 : "",
+        topic5: "",
+      }
+    }
     onButtonPress(){
         this.props.navigator.push({
-        title: "Question6",
-        component: question6,
+        title: "Password",
+        component: Password,
         passProps:{
-          resultQ1: this.props.resultQ1,
-          resultQ2: this.props.resultQ2,
-          resultQ3: this.props.resultQ3,
-          resultQ4: this.props.resultQ4,
-          resultQ5: this.state.result
+          title : this.props.title,
+          department : this.props.department,
+          name1 : this.props.name1,
+          topic1 : this.props.topic1,
+          name2 : this.props.name2,
+          topic2 : this.props.topic2,
+          name3 : this.props.name3,
+          topic3 : this.props.topic3,
+          name4 : this.props.name4,
+          topic4 : this.props.topic4,
+          name5 : this.state.name5,
+          topic5 : this.state.topic5,
         }
       });
     }
-    constructor(props){
-      super(props);
-      this.state = {result:''};
-    }
-    render(){
     
 
+    render(){
+    
     return(
       <View style={styles.container}>
        <View style={styles.imageBox}>
             <Image source={require('./Resources/title.png')}
-                style={styles.titleImage}/>
+                style={styles.image}/>
         </View>
-          <Text style={styles.text}>
-            Please suggest other topics that should be covered in futher activities:{'\n'}
-          </Text>
          <View style={styles.inputBox}>
           <TextInput style = {styles.input}
-              multiline = {true}
-              numberOfLine = {4}
-              placeholder = ""
-              onChangeText = {(result) => this.setState({result})}
+              onChangeText = {(name5) => this.setState({name5})}
+              placeholder = " Speaker's name:"
+              autoCapitalize = 'none'/>
+          <TextInput style = {styles.input}
+              onChangeText = {(topic5) => this.setState({topic5})}
+              placeholder = ' Topic:'
               autoCapitalize = 'none'/>
           </View>
+
+
         <View style={styles.buttonBox}>
-          <TouchableHighlight style={styles.button}
-            onPress = {() => this.onButtonPress()} 
+
+          <TouchableHighlight onPress = {() => this.onButtonPress()} style={styles.button}
             underlayColor= '#99d9f4'>
             <Text style={styles.buttonText}>Next</Text>
           </TouchableHighlight>
@@ -133,4 +138,4 @@ class Question5 extends Component{
     }
 }
 
-module.exports = Question5;
+module.exports = Speaker5;

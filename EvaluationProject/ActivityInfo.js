@@ -98,8 +98,12 @@ class ActivityInfo extends Component{
   }
   onStartPressed(){
         this.props.navigator.push({
-            title: 'Speaker',
+            title: 'Speaker #1',
             component: speaker,
+            passProps:{
+              title: this.state.title,
+              department: this.state.department,
+            }
            
         });
     }
@@ -112,15 +116,15 @@ class ActivityInfo extends Component{
         </View>
         <View style={styles.inputBox}>
           <TextInput style = {styles.input}
-              onChange={this.onTitleCharged.bind(this)}
+              onChange = {this.onTitleCharged.bind(this)}
               placeholder = ' Title:'
               autoCapitalize = 'none'/>
           <TextInput style = {styles.input}
+              onChange = {this.onDepartCharged.bind(this)}
               placeholder = ' Department:'
               autoCapitalize = 'none'/>
           <TextInput style = {styles.input}
               onChange={this.onNumCharged.bind(this)}
-              //keyboardType='numeric'
               
               placeholder = ' Number of Speaker:'
               autoCapitalize = 'none'/>

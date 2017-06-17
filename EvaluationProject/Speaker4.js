@@ -1,6 +1,6 @@
 'use strict';
 var Password = require('./Passwords');
-var Speaker2 = require('./Speaker2');
+var Speaker5 = require('./Speaker5');
 
 import React, {Component} from 'react'
 import{
@@ -24,13 +24,13 @@ var styles = StyleSheet.create({
     paddingTop:69,
     justifyContent:'space-between',
   },
-  text:{
-    color: 'black',
-    backgroundColor: 'white',
-    fontSize: 30,
-    margin: 80,
-    flex:2,
-  },
+  // text:{
+  //   color: 'black',
+  //   backgroundColor: 'white',
+  //   fontSize: 30,
+  //   margin: 80,
+  //   flex:2,
+  // },
   imageBox:{
     flex:1,
     alignSelf:'flex-start',
@@ -77,41 +77,50 @@ var styles = StyleSheet.create({
   },
 });
 
-class Speaker extends Component{
-
+class Speaker4 extends Component{
     constructor(props){
       super(props);
       this.state = {
-        name1 : "",
-        topic1 : "",
+        name4 : "",
+        topic4 : "",
       }
     }
-    
     onButtonPress(){
         this.props.navigator.push({
         title: "Password",
         component: Password,
         passProps:{
-          title: this.props.title,
-          department: this.props.title,
-          name1: this.state.name1,
-          topic1: this.state.topic1
+          title : this.props.title,
+          department : this.props.department,
+          name1 : this.props.name1,
+          topic1 : this.props.topic1,
+          name2 : this.props.name2,
+          topic2 : this.props.topic2,
+          name3 : this.props.name3,
+          topic3 : this.props.topic3,
+          name4 : this.state.name4,
+          topic4 : this.state.topic4,
         }
       });
     }
     
     onMoreButton(){
       this.props.navigator.push({
-        title:"Speaker #2",
-        component: Speaker2,
+        title:"Speaker #5",
+        component: Speaker5,
         passProps:{
-            title: this.props.title,
-            department: this.props.department,
-            name1: this.state.name1,
-            topic1: this.state.topic1,
-          }
-        
-      })
+          title : this.props.title,
+          department : this.props.department,
+          name1 : this.props.name1,
+          topic1 : this.props.topic1,
+          name2 : this.props.name2,
+          topic2 : this.props.topic2,
+          name3 : this.props.name3,
+          topic3 : this.props.topic3,
+          name4 : this.state.name4,
+          topic4 : this.state.topic4,
+        }
+      });
     }
 
     render(){
@@ -121,21 +130,14 @@ class Speaker extends Component{
        <View style={styles.imageBox}>
             <Image source={require('./Resources/title.png')}
                 style={styles.image}/>
-         
-        <Text style={styles.text}>
-        fdsfads
-          {this.props.title}
-          {this.props.department}
-        </Text>
         </View>
          <View style={styles.inputBox}>
           <TextInput style = {styles.input}
-              onChangeText = {(name1) => this.setState({name1})}
-              placeholder = " Speaker's name: "
+              onChangeText = {(name4) => this.setState({name4})}
+              placeholder = " Speaker's name:"
               autoCapitalize = 'none'/>
-
           <TextInput style = {styles.input}
-              onChangeText = {(topic1) => this.setState({topic1})}
+              onChangeText = {(topic4) => this.setState({topic4})}
               placeholder = ' Topic:'
               autoCapitalize = 'none'/>
           </View>
@@ -158,4 +160,4 @@ class Speaker extends Component{
     }
 }
 
-module.exports = Speaker;
+module.exports = Speaker4;

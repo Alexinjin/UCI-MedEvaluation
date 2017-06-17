@@ -74,15 +74,40 @@ var styles = StyleSheet.create({
     padding:14,
     justifyContent: 'center',
   },
+
+  choiceButtonNoPress:{
+    backgroundColor:'white',
+    borderColor:'black',
+    borderRadius: 10,
+    justifyContent: 'center',
+
+  },
 });
 
 class CheckPassword extends Component{
 
+    constructor(props){
+      super(props);
+      this.state = {
+        result : NaN
+      }
+      
+    }
+
     onButtonPress(){
+      if (Object.is(this.state.result,NaN))
+      {
+
+      }
+      else {
         this.props.navigator.push({
         title: "Question 1",
         component: question1,
+        passProps:{
+          password: this.result,
+        }
       });
+      }
     }
     
 
@@ -99,6 +124,7 @@ class CheckPassword extends Component{
                 style={styles.image}/>
          <View style={styles.inputBox}>
           <TextInput style = {styles.input}
+              onChangeText = {(result) => this.setState({result})}
               placeholder = " Enter evaluation password:"
               autoCapitalize = 'none'/>
           </View>
@@ -110,6 +136,8 @@ class CheckPassword extends Component{
           </TouchableHighlight>
 
         </View>
+
+
       </View>)
     }
 }

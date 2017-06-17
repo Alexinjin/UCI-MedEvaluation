@@ -23,7 +23,7 @@ var styles = StyleSheet.create({
     justifyContent:'space-between',
   },
   TextBox:{
-    flex:2,
+    flex:3,
     marginHorizontal: 15,
     alignSelf:'flex-start',
   },
@@ -36,7 +36,7 @@ var styles = StyleSheet.create({
   title:{
     color: 'black',
     backgroundColor: 'white',
-    fontSize: 25,
+    fontSize: 20,
     flex:1,
   },
   imageBox:{
@@ -49,19 +49,7 @@ var styles = StyleSheet.create({
     width: 136,
     height: 35,
   },
-  inputBox:{
-    flexDirection:'column',
-    flex:1,
-    alignSelf:'stretch',
-    justifyContent:'space-between',
-    marginHorizontal: 25,
-  },
-  input:{
-    height: 35,
-    borderColor: 'grey',
-    borderWidth: 1.5,
-    borderRadius: 10,
-  },
+
   buttonBox:{
     flexDirection:'column',
     justifyContent: 'flex-end',
@@ -89,6 +77,12 @@ var styles = StyleSheet.create({
     justifyContent: 'space-between',
 
   },
+
+  chooseText:{
+    fontSize:14,
+    color: 'black',
+    textAlign: 'center',
+  },
 });
 
 class Question7 extends Component{
@@ -100,6 +94,7 @@ class Question7 extends Component{
       this.disagree = 0;
       this.sdisagree = 0;
       this.none = 0;
+      this.result = 0;
       this.state = {
         sagree_color: "white",
         agree_color: "white",
@@ -138,7 +133,7 @@ class Question7 extends Component{
     onButtonPress2(){
       if(this.agree == 0){
           this.sagree = 0;
-          this.agree = 1;
+          this.agree = 2;
           this.Neutral = 0;
           this.disagree = 0;
           this.sdisagree = 0;
@@ -164,7 +159,7 @@ class Question7 extends Component{
       if(this. Neutral == 0){
           this.sagree = 0;
           this.agree = 0;
-          this.Neutral = 1;
+          this.Neutral = 3;
           this.disagree = 0;
           this.sdisagree = 0;
           this.none = 0;
@@ -190,7 +185,7 @@ class Question7 extends Component{
           this.sagree = 0;
           this.agree = 0;
           this.Neutral = 0;
-          this.disagree = 1;
+          this.disagree = 4;
           this.sdisagree = 0;
           this.none = 0;
           this.setState({
@@ -215,7 +210,7 @@ class Question7 extends Component{
           this.agree = 0;
           this.Neutral = 0;
           this.disagree = 0;
-          this.sdisagree = 1;
+          this.sdisagree = 5;
           this.none = 0;
           this.setState({
           sagree_color: "white",
@@ -241,7 +236,7 @@ class Question7 extends Component{
           this.Neutral = 0;
           this.disagree = 0;
           this.sdisagree = 0;
-          this.none = 1;
+          this.none = 6;
           this.setState({
           sagree_color: "white",
           agree_color: "white",
@@ -261,10 +256,22 @@ class Question7 extends Component{
 
 
     onButtonPress(){
+      if ((this.sagree || this.agree || this.Neutral || this.disagree || this.sdisagree || this.none) != 0){
+        this.result = this.sagree + this.agree + this.Neutral + this.disagree + this.sdisagree + this.none
         this.props.navigator.push({
         title: "Question 8",
         component: question8,
-      });
+        passProps:{
+          resultQ1: this.props.resultQ1,
+          resultQ2: this.props.resultQ2,
+          resultQ3: this.props.resultQ3,
+          resultQ4: this.props.resultQ4,
+          resultQ5: this.props.resultQ5,
+          resultQ6: this.props.resultQ6,
+          resultQ7: this.result
+          }
+        });
+      }
     }
 
     render(){
@@ -275,7 +282,7 @@ class Question7 extends Component{
                 style={styles.imagetitle}/>
         </View>
         <View style={styles.TextBox}>
-          <Text style={styles.baseText}>
+          <Text style={styles.title}>
             Issues in cultural and linguistic competency (e.g. differences in prevalence, diagnosis, 
             treatment in diverse populations, linguistic skills, pertinent cultural data) were adequately
             addressed in this activity: {'\n\n'}

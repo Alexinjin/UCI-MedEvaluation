@@ -52,7 +52,9 @@ var styles = StyleSheet.create({
     justifyContent:'space-between',
     marginHorizontal: 25,
   },
+
   input:{
+    fontSize: 16,
     height: 150,
     borderColor: 'grey',
     borderWidth: 1.5,
@@ -84,34 +86,50 @@ var styles = StyleSheet.create({
 class Question4 extends Component{
     onButtonPress(){
         this.props.navigator.push({
-        title: "Question 5",
+        title: "Question5",
         component: question5,
+        passProps:{
+          resultQ1: this.props.resultQ1,
+          resultQ2: this.props.resultQ2,
+          resultQ3: this.props.resultQ3,
+          resultQ4: this.state.result
+        }
       });
+    }
+
+    constructor(props){
+      super(props);
+      this.state = {result:''};
     }
     render(){
     
     return(
       <View style={styles.container}>
-       <View style={styles.imageBox}>
+        <View style={styles.imageBox}>
             <Image source={require('./Resources/title.png')}
                 style={styles.titleImage}/>
         </View>
-         <Text style={styles.text}>
-            How will you change your clinical practie as a result of this activity?{'\n'}
 
-            </Text>
-         <View style={styles.inputBox}>
+        <Text style={styles.text}>
+          How will you change your clinical practie as a result of this activity?{'\n'}
+          
+        </Text>
+
+        <View style={styles.inputBox}>
           <TextInput style = {styles.input}
+              multiline = {true}
+              numberOfLine = {4}
               placeholder = ""
+              onChangeText = {(result) => this.setState({result})}
               autoCapitalize = 'none'/>
-          </View>
+        </View>
+
         <View style={styles.buttonBox}>
           <TouchableHighlight style={styles.button}
             onPress = {() => this.onButtonPress()} 
             underlayColor= '#99d9f4'>
             <Text style={styles.buttonText}>Next</Text>
           </TouchableHighlight>
-
         </View>
       </View>)
     }

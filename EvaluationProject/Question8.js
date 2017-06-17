@@ -53,7 +53,8 @@ var styles = StyleSheet.create({
     marginHorizontal: 25,
   },
   input:{
-    height: 35,
+    fontSize: 16,
+    height: 150,
     borderColor: 'grey',
     borderWidth: 1.5,
     borderRadius: 10,
@@ -86,34 +87,50 @@ class Question8 extends Component{
         this.props.navigator.push({
         title: "Compelete",
         component: lastpage,
+        passProps:{
+        resultQ1: this.props.resultQ1,
+        resultQ2: this.props.resultQ2,
+        resultQ3: this.props.resultQ3,
+        resultQ4: this.props.resultQ4,
+        resultQ5: this.props.resultQ5,
+        resultQ6: this.props.resultQ6,
+        resultQ7: this.props.resultQ7,
+        resultQ8: this.state.result
+        }
       });
     }
 
+    constructor(props){
+      super(props);
+      this.state = {result:''};
+    }
+
     render(){
-    
     return(
-      <View style={styles.container}>
-       <View style={styles.imageBox}>
+     <View style={styles.container}>
+        <View style={styles.imageBox}>
             <Image source={require('./Resources/title.png')}
                 style={styles.titleImage}/>
         </View>
-         <Text style={styles.text}>
+
+
+        <Text style={styles.text}>
             Resources on cultural and lingusitic competency have been included in your materials. 
             How can we further meet educational needs in this area?{'\n'}
-
-            </Text>
-         <View style={styles.inputBox}>
+        </Text>
+        <View style={styles.inputBox}>
           <TextInput style = {styles.input}
-              placeholder = " Enter your opinion:"
-              autoCapitalize = 'none'/>
-          </View>
+            multiline = {true}
+            numberOfLine = {4}
+            onChangeText = {(result) => this.setState({result})}
+            autoCapitalize = 'none'/>
+        </View>
         <View style={styles.buttonBox}>
           <TouchableHighlight style={styles.button}
           onPress = {() => this.onButtonPress()} 
             underlayColor= '#99d9f4'>
             <Text style={styles.buttonText}>Sumbit</Text>
           </TouchableHighlight>
-
         </View>
       </View>)
     }
