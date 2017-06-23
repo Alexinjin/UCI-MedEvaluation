@@ -13,7 +13,7 @@ import{
   ScrollView,
 } from 'react-native';
 
-var question3 = require('./Question3');
+var question3_1 = require('./Question3_1');
 
 var styles = StyleSheet.create({
   container:{
@@ -136,9 +136,21 @@ class Question2 extends Component{
               this.result += 3
             }
             this.props.navigator.push({
-              title: 'Question 3',
-              component: question3,
+              title: 'Question 3 #1',
+              component: question3_1,
               passProps:{
+                password: this.props.password,
+                numOfSpeaker : this.props.numOfSpeaker,
+                name1 : this.props.name1,
+                topic1 : this.props.topic1,
+                name2 : this.props.name2,
+                topic2 : this.props.topic2,
+                name3 : this.props.name3,
+                topic3 : this.props.topic3,
+                name4 : this.props.name4,
+                topic4 : this.props.topic4,
+                name5 : this.props.name5,
+                topic5 : this.props.topic5,
                 resultQ1 : this.props.resultQ1,
                 resultQ2 : this.result,
               }
@@ -422,6 +434,7 @@ class Question2 extends Component{
         </View>
 
         <View style={styles.TextBox}>
+          
           <ScrollView>
             <Text style={styles.title}>
 
