@@ -25,7 +25,7 @@ var styles = StyleSheet.create({
   },
   
   TextBox:{
-    flex: 100,
+    flex: 90,
     marginHorizontal: 10,
   },
   title:{
@@ -41,7 +41,7 @@ var styles = StyleSheet.create({
   },
 
   imageBox:{
-    flex:1,
+    flex:8,
     alignSelf:'flex-start',
     marginLeft: 10,
 
@@ -435,7 +435,7 @@ class Question2 extends Component{
 
         <View style={styles.TextBox}>
           
-          <ScrollView>
+          <ScrollView automaticallyAdjustContentInsets={false}>
             <Text style={styles.title}>
 
             Did this event meet the objectives

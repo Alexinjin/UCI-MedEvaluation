@@ -20,7 +20,7 @@ var styles = StyleSheet.create({
     justifyContent:'space-between',
   },
   imageBox:{
-    flex:1,
+    flex:2,
     alignSelf:'flex-start',
     marginLeft: 10,
     justifyContent:'space-between',
@@ -82,17 +82,7 @@ class LastPage extends Component {
         <Image source={require('./Resources/complete.png')}
                 style={styles.image}/>
         <Text style={styles.text}>Completed.</Text>
-        <Text style={styles.text}>Thank you for your participation!
-          {this.props.resultQ1} {'\n'}
-          {this.props.resultQ2} {'\n'}
-          {this.props.resultQ3} {'\n'}
-          {this.props.resultQ4} {'\n'}
-          {this.props.resultQ5} {'\n'}
-          {this.props.resultQ6} {'\n'}
-          {this.props.resultQ7} {'\n'}
-          {this.props.resultQ8} {'\n'}
-
-        </Text>
+        <Text style={styles.text}>Thank you for your participation!</Text>
         <View style={styles.buttonBox}>
           <TouchableHighlight style={styles.button}
           	onPress = {() => this.onButtonPress()} 

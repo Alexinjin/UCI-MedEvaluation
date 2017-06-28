@@ -36,7 +36,7 @@ var styles = StyleSheet.create({
   title:{
     color: 'black',
     backgroundColor: 'white',
-    fontSize: 20,
+    fontSize: 18,
     flex:1,
   },
   imageBox:{

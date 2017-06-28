@@ -26,7 +26,7 @@ var styles = StyleSheet.create({
   
   TextBox:{
     marginHorizontal: 10,
-    flex: 120,
+    flex: 90,
   },
 
   title:{
@@ -42,7 +42,7 @@ var styles = StyleSheet.create({
     paddingTop:5,
   },
   imageBox:{
-    flex:1,
+    flex:20,
     alignSelf:'flex-start',
     marginLeft: 10,
   },
@@ -962,10 +962,8 @@ class Question3 extends Component{
             <Image source={require('./Resources/title.png')}
                 style={styles.imagetitle}/>
         </View>
-
-
         <View style={styles.TextBox}>
-        <ScrollView>
+        <ScrollView automaticallyAdjustContentInsets={false}>
           <Text style={styles.title}>
             Please rate the speaker(s) and write constructive suggestions to aid
             the speaker in future presentations: {'\n\n'}

@@ -27,7 +27,7 @@ var styles = StyleSheet.create({
   
   TextBox:{
     marginHorizontal: 10,
-    flex: 120,
+    flex: 100,
   },
 
   title:{
@@ -43,7 +43,7 @@ var styles = StyleSheet.create({
     paddingTop:5,
   },
   imageBox:{
-    flex:1,
+    flex: 8,
     alignSelf:'flex-start',
     marginLeft: 10,
   },
@@ -998,7 +998,7 @@ class Question3_1 extends Component{
 
 
         <View style={styles.TextBox}>
-        <ScrollView>
+        <ScrollView automaticallyAdjustContentInsets={false}>
           <Text style={styles.title}>
             Please rate the speaker(s) and write constructive suggestions to aid
             the speaker in future presentations: {'\n\n'}
